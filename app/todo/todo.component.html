@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Nhập vào công việc"
+                    aria-label="Recipient's username" aria-describedby="button-addon2" [(ngModel)]="todo.name">
+                <div class="input-group-append">
+                    <button class="btn btn-danger" type="button" id="button-addon2" (click)="addTodo()">Thêm mới</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-10">
+            <table class="table">
+                <tbody>
+                    <tr *ngFor="let item of todoList , let i = index" [ngClass]="{'active':item.status}">
+                        <td><input type="checkbox" name="" id="" [checked]="item.status" (change)="update(i)"></td>
+                        <td>{{item.name}}</td>
+                        <td><button (click)="delete(i)">Xóa</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
